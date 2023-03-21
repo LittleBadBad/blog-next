@@ -1,8 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: false,
+/** @type {import("next").NextConfig} */
+module.exports = {
+  rewrites() {
+    return [{
+      source: "/uploads/:path*",
+      destination: "http://localhost:1337/uploads/:path*"
+    }];
   },
-}
-
-module.exports = nextConfig
+  swcMinify: true,
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true
+  }
+};
