@@ -1,4 +1,5 @@
 import { Media } from './Media';
+import { LinkList } from "@models/LinkList";
 
 export interface SiteConfig {
   id: number;
@@ -12,6 +13,7 @@ export interface SiteConfig {
     url?: string;
     description?: string;
     title?: string;
+    headNav?: { data: LinkList };
     openGraphImage?: { data: Media };
     createdAt: string;
     updatedAt: string;

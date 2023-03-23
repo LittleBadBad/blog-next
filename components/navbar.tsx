@@ -7,53 +7,10 @@ import GetImage from "@utils/getImage";
 import { SiteConfigProp } from "@lib/propTypes";
 
 export default function Navbar(props: SiteConfigProp) {
-  const leftmenu: any[] = [];
 
-  const rightmenu = [
-    {
-      label: "Home",
-      href: "/"
-    },
-    {
-      label: "About",
-      href: "/about"
-    },
-    {
-      label: "Contact",
-      href: "/contact"
-    },
-    {
-      label: "Contact",
-      href: "/contact"
-    },
-    {
-      label: "Archive",
-      href: "/archive"
-    },
-    {
-      label: "Pro Version",
-      href: "https://stablo-pro.web3templates.com/",
-      external: true,
-      badge: "new"
-    },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    }
-  ];
+  const rightmenu = props.headNav.links || [];
 
-  const mobilemenu: any[] = [...leftmenu, ...rightmenu];
+  const mobilemenu = rightmenu;
 
   return (
     <Container>
@@ -62,16 +19,16 @@ export default function Navbar(props: SiteConfigProp) {
           {({ open }) => (
             <>
               <div className="flex flex-wrap justify-between md:gap-2.5 md:flex-nowrap">
-                <div
-                  className="flex-col items-center justify-start order-1 hidden w-full md:flex md:flex-row md:justify-end md:w-auto md:order-none md:flex-1">
-                  {leftmenu.map((item, index) => (
-                    <Link href={item.href} key={index}>
-                      <a className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500">
-                        {item.label}
-                      </a>
-                    </Link>
-                  ))}
-                </div>
+                {/*<div*/}
+                {/*  className="flex-col items-center justify-start order-1 hidden w-full md:flex md:flex-row md:justify-end md:w-auto md:order-none md:flex-1">*/}
+                {/*  {leftmenu.map((item, index) => (*/}
+                {/*    <Link href={item.href} key={index}>*/}
+                {/*      <a className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500">*/}
+                {/*        {item.label}*/}
+                {/*      </a>*/}
+                {/*    </Link>*/}
+                {/*  ))}*/}
+                {/*</div>*/}
                 <div className="flex items-center justify-between w-full md:w-auto">
                   <Link href="/">
                     <a className="w-28 dark:hidden">

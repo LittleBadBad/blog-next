@@ -4,12 +4,28 @@ import { User } from "@models/User";
 import { Category } from "@models/Category";
 import { Post } from "@models/Post";
 import { SiteConfig } from "@models/SiteConfig";
+import { Link } from "@models/Link";
+import { LinkList } from "@models/LinkList";
 
 export type AuthorProp = {
   id: number;
   bio: string;
   name: string;
   image: Media;
+}
+
+export type LinkProp = {
+  label: string;
+  href: string;
+  desc: string;
+  external: boolean;
+  badge: string;
+}
+
+export type LinkListProp = {
+  label: string;
+  links: LinkProp[];
+  desc: string;
 }
 
 export type CategoryProp = {
@@ -29,6 +45,7 @@ export type SiteConfigProp = {
   description: string;
   title: string;
   openGraphImage: Media;
+  headNav: LinkListProp
 }
 
 export type PostProp = {
@@ -82,6 +99,9 @@ export const defaultMedia: Media = {
     }
   }, id: 0
 };
+
+export const defaultLink: LinkProp = { badge: "", desc: "", external: false, href: "", label: "" };
+export const defalutLinkListProp: LinkListProp = { desc: "", label: "", links: [] };
 export const defaultCategoryProp: CategoryProp = { id: 0, color: "", title: "" };
 export const defaultAuthorProp: AuthorProp = { bio: "", id: 0, image: defaultMedia, name: "" };
 export const defaultPostProp: PostProp = {
@@ -108,7 +128,8 @@ const defaultSiteConfigProp: SiteConfigProp = {
   phone: "",
   title: "",
   url: "",
-  w3ckey: ""
+  w3ckey: "",
+  headNav: defalutLinkListProp
 };
 
 export function toAuthorProp(author?: User): AuthorProp {
@@ -134,8 +155,23 @@ export function toPostProp(a: Post): PostProp {
     id: a.id,
     ...a.attributes,
     author: toAuthorProp(a.attributes.author?.data),
-    categories: (a.attributes.categories?.data || []).map(c => toCategoryProp(c)),
+    categories: (a.attributes.categories?.data || []).map(toCategoryProp),
     mainImage: a.attributes.mainImage?.data || defaultMedia
+  };
+}
+
+export function toLinkProp(l?: Link): LinkProp {
+  return {
+    ...defaultLink,
+    ...l?.attributes || {}
+  };
+}
+
+export function toLinkListProp(ll?: LinkList): LinkListProp {
+  return {
+    ...defalutLinkListProp,
+    ...ll?.attributes || {},
+    links: ll?.attributes.links.data.map(toLinkProp) || []
   };
 }
 
@@ -145,6 +181,7 @@ export function toSiteConfigProp(s?: SiteConfig): SiteConfigProp {
     ...s?.attributes || {},
     logo: s?.attributes.logo?.data || defaultMedia,
     logoalt: s?.attributes.logoalt?.data || defaultMedia,
-    openGraphImage: s?.attributes.openGraphImage?.data || defaultMedia
+    openGraphImage: s?.attributes.openGraphImage?.data || defaultMedia,
+    headNav: toLinkListProp(s?.attributes.headNav?.data)
   };
 }
