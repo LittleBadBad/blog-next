@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { PortableText ,} from "@lib/strapi";
-import GetImage from "@utils/getImage";
-import { AuthorProp } from "@lib/propTypes";
+import GetImage from "@lib-front/getImage";
+import { AuthorProp } from "@model-view";
+import Markdown from "@components/blog/markdown";
 
 export default function AuthorCard({ author }: { author: AuthorProp }) {
   const imageProps = author?.image ? GetImage(author.image) : null;
@@ -29,7 +29,7 @@ export default function AuthorCard({ author }: { author: AuthorProp }) {
             </h4>
           </div>
           <div>
-            {author.bio && <PortableText value={author.bio} />}
+            {author.bio && <Markdown value={author.bio} />}
           </div>
         </div>
       </div>

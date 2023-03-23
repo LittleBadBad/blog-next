@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AuthorProp, PostProp, SiteConfigProp } from "@lib/propTypes";
+import { AuthorProp, PostProp, SiteConfigProp } from "@model-view";
 
 export const httpService = axios.create({ baseURL: "http://localhost:3000" });
 

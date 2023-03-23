@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { collection } from "@lib/strapi";
-import { AuthorProp, toAuthorProp } from "@lib/propTypes";
-import { User } from "@models/User";
 import { Media } from "@models/Media";
+import { collection } from "@lib-back/strapi";
 
 export default async function recentPosts(req: NextApiRequest, res: NextApiResponse<any[]>) {
   const { data, meta } = await collection.getMany<Media>("uploads", {

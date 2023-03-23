@@ -1,4 +1,4 @@
-import { cx } from "@utils/all";
+import { cx } from "@lib-front/utils";
 
 export default function Label(props) {
   const color = {

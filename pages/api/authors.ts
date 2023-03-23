@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { collection } from "@lib/strapi";
-import { AuthorProp, toAuthorProp } from "@lib/propTypes";
 import { User } from "@models/User";
+import { toAuthorProp } from "@lib-back/propTypes";
+import { AuthorProp } from "@model-view";
+import { collection } from "@lib-back/strapi";
 
 export default async function recentPosts(req: NextApiRequest, res: NextApiResponse<AuthorProp[]>) {
   const { data, meta } = await collection.getMany<User>("users", {

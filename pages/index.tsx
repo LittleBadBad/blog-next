@@ -3,11 +3,11 @@ import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import defaultOG from "../public/img/opengraph.jpg";
-import GetImage from "@utils/getImage";
+import GetImage from "@lib-front/getImage";
 import PostList from "@components/postlist";
-import { PostProp, SiteConfigProp } from "@lib/propTypes";
 import { GetStaticProps } from "@node_modules/next";
-import { getPost, getPosts, getSiteConfig, httpService } from "@lib/services";
+import { getPosts, getSiteConfig } from "@lib-front/services";
+import { PostProp, SiteConfigProp } from "@model-view";
 
 type IndexProps = { posts: PostProp[], siteConfig: SiteConfigProp, preview: boolean }
 

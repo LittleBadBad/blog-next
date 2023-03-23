@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { SiteConfigProp, toSiteConfigProp } from "@lib/propTypes";
-import { collection } from "@lib/strapi";
 import { SiteConfig } from "@models/SiteConfig";
+import { SiteConfigProp } from "@model-view";
+import { toSiteConfigProp } from "@lib-back/propTypes";
+import { collection } from "@lib-back/strapi";
 
 export default async function _SiteConfig(req: NextApiRequest, res: NextApiResponse<SiteConfigProp>) {
 

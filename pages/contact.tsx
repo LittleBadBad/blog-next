@@ -8,8 +8,8 @@ import {
   MailIcon,
   PhoneIcon
 } from "@heroicons/react/outline";
-import { SiteConfigProp } from "@lib/propTypes";
-import { getSiteConfig, httpService } from "@lib/services";
+import { SiteConfigProp } from "@model-view";
+import { getSiteConfig } from "@lib-front/services";
 
 export default function Contact({ siteconfig }: { siteconfig: SiteConfigProp }) {
   const {

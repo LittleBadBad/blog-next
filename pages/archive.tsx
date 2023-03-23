@@ -3,10 +3,10 @@ import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
 import defaultOG from "../public/img/opengraph.jpg";
-import GetImage from "@utils/getImage";
+import GetImage from "@lib-front/getImage";
 import PostList from "@components/postlist";
-import { PostProp, SiteConfigProp } from "@lib/propTypes";
-import { getPosts, getSiteConfig } from "@lib/services";
+import { getPosts, getSiteConfig } from "@lib-front/services";
+import { PostProp, SiteConfigProp } from "@model-view";
 
 export default function Post(props: { posts: PostProp[], siteConfig: SiteConfigProp, preview: boolean }) {
   const { posts, siteConfig, preview } = props;

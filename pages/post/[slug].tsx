@@ -3,16 +3,16 @@ import Link from "next/link";
 import Layout from "@components/layout";
 import Container from "@components/container";
 import { useRouter } from "next/router";
-import { collection, PortableText, strapiClient } from "@lib/strapi";
 import ErrorPage from "next/error";
-import GetImage from "@utils/getImage";
+import GetImage from "@lib-front/getImage";
 import { parseISO, format } from "date-fns";
 import { NextSeo } from "next-seo";
 import defaultOG from "@public/img/opengraph.jpg";
 import CategoryLabel from "@components/blog/category";
 import AuthorCard from "@components/blog/authorCard";
-import { PostProp, SiteConfigProp } from "@lib/propTypes";
-import { httpService } from "@lib/services";
+import { PostProp, SiteConfigProp } from "@model-view";
+import { getPosts, httpService } from "@lib-front/services";
+import Markdown from "@components/blog/markdown";
 
 export default function Post(props: { post: PostProp, siteConfig: SiteConfigProp, preview: boolean }) {
   const { post, siteConfig, preview } = props;
@@ -131,12 +131,8 @@ export default function Post(props: { post: PostProp, siteConfig: SiteConfigProp
                         dateTime={
                           post?.publishedAt || post.createdAt
                         }>
-                        {format(
-                          parseISO(
-                            post?.publishedAt || post.createdAt
-                          ),
-                          "MMMM dd, yyyy"
-                        )}
+                        {format(parseISO(post?.publishedAt || post.createdAt),
+                          "MMMM dd, yyyy")}
                       </time>
                       <span>
                         · {post.estReadingTime || "5"} min read
@@ -167,7 +163,7 @@ export default function Post(props: { post: PostProp, siteConfig: SiteConfigProp
           <Container>
             <article className="max-w-screen-md mx-auto ">
               <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
-                {post.body && <PortableText value={post.body} />}
+                {post.body && <Markdown value={post.body} />}
               </div>
               <div className="flex justify-center mt-7 mb-7">
                 <Link href="/">
@@ -217,19 +213,12 @@ export async function getStaticProps({ params, preview = false }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await collection.getMany("posts", {
-    pagination: {
-      start: 0,
-      limit: Infinity,
-      withCount: false
-    }
-  })
-    .then(r => r.data);
+  const allPosts = await getPosts(1, Infinity);
   return {
     paths:
       allPosts?.map(page => ({
         params: {
-          slug: page.attributes.slug
+          slug: page.slug
         }
       })) || [],
     fallback: true

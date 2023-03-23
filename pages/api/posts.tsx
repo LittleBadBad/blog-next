@@ -2,9 +2,9 @@
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { Post } from "@models/Post";
-import { collection } from "@lib/strapi";
-import { defaultPostProp, PostProp, toPostProp } from "@lib/propTypes";
-import { Media } from "@models/Media";
+import { PostProp } from "@model-view";
+import { toPostProp } from "@lib-back/propTypes";
+import { collection } from "@lib-back/strapi";
 
 export default async function recentPosts(req: NextApiRequest, res: NextApiResponse<PostProp[]>) {
   try {
