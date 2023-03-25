@@ -1,5 +1,5 @@
-import { Media } from "@models/Media";
-import { MediaFormat } from "@models/MediaFormat";
+import { Media } from "@/models/Media";
+import { MediaFormat } from "@/models/MediaFormat";
 
 export type AuthorProp = {
   id: number;

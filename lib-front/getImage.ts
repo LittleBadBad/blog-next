@@ -1,6 +1,6 @@
-import type { Media } from "@models/Media";
-import { ImageLoader, ImageProps } from "@node_modules/next/dist/client/image";
-import { defaultMedia } from "@model-view";
+import type { Media } from "@/models/Media";
+import { ImageLoader, ImageProps } from "next/dist/client/image";
+import { defaultMedia } from "@/model-view";
 
 export type ImageP = {
   src: string;

@@ -1,9 +1,9 @@
-import Container from "@components/container";
-import ThemeSwitch from "@components/themeSwitch";
+import Container from "@/components/container";
+import ThemeSwitch from "@/components/themeSwitch";
 import Image from "next/image";
-import { myLoader } from "@lib-front/utils";
+import { myLoader } from "@/lib-front/utils";
 import VercelLogo from "../public/img/vercel.svg";
-import { SiteConfigProp } from "@model-view";
+import { SiteConfigProp } from "@/model-view";
 
 export default function Footer(props:SiteConfigProp) {
   return (

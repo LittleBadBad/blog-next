@@ -1,5 +1,5 @@
 import { Media } from './Media';
-import { LinkList } from "@models/LinkList";
+import { LinkList } from "@/models/LinkList";
 
 export interface SiteConfig {
   id: number;

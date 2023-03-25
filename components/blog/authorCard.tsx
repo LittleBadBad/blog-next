@@ -1,7 +1,7 @@
 import Image from "next/image";
-import GetImage from "@lib-front/getImage";
-import { AuthorProp } from "@model-view";
-import Markdown from "@components/blog/markdown";
+import GetImage from "@/lib-front/getImage";
+import { AuthorProp } from "@/model-view";
+import Markdown from "@/components/blog/markdown";
 
 export default function AuthorCard({ author }: { author: AuthorProp }) {
   const imageProps = author?.image ? GetImage(author.image) : null;

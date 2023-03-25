@@ -1,5 +1,5 @@
-import Container from "@components/container";
-import Layout from "@components/layout";
+import Container from "@/components/container";
+import Layout from "@/components/layout";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useWeb3Forms from "use-web3forms";
@@ -8,8 +8,8 @@ import {
   MailIcon,
   PhoneIcon
 } from "@heroicons/react/outline";
-import { SiteConfigProp } from "@model-view";
-import { getSiteConfig } from "@lib-front/services";
+import { SiteConfigProp } from "@/model-view";
+import { getSiteConfig } from "@/lib-front/services";
 
 export default function Contact({ siteconfig }: { siteconfig: SiteConfigProp }) {
   const {

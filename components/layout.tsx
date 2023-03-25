@@ -1,11 +1,10 @@
 import { ReactNode } from "react";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import GetImage from "@lib-front/getImage";
-import Navbar from "@components/navbar";
-import Footer from "@components/footer";
-import { SiteConfigProp } from "@model-view";
-// import PopupWidget from "../components/popupWidget";
+import GetImage from "@/lib-front/getImage";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import { SiteConfigProp } from "@/model-view";
 
 export default function Layout(props: { children: ReactNode } & SiteConfigProp) {
   const { children } = props;

@@ -1,9 +1,9 @@
-import { User } from "@models/User";
-import { Category } from "@models/Category";
-import { Post } from "@models/Post";
-import { SiteConfig } from "@models/SiteConfig";
-import { Link } from "@models/Link";
-import { LinkList } from "@models/LinkList";
+import { User } from "@/models/User";
+import { Category } from "@/models/Category";
+import { Post } from "@/models/Post";
+import { SiteConfig } from "@/models/SiteConfig";
+import { Link } from "@/models/Link";
+import { LinkList } from "@/models/LinkList";
 import {
   AuthorProp,
   CategoryProp,
@@ -18,7 +18,7 @@ import {
   LinkProp,
   PostProp,
   SiteConfigProp
-} from "@model-view";
+} from "@/model-view";
 
 export type Aspect = "landscape" | "square"
 

@@ -1,4 +1,4 @@
-import { Media } from "@models/Media";
+import { Media } from "@/models/Media";
 
 export interface User {
   id: number;

@@ -1,10 +1,10 @@
-import Container from "@components/container";
-import Layout from "@components/layout";
-import GetImage from "@lib-front/getImage";
+import Container from "@/components/container";
+import Layout from "@/components/layout";
+import GetImage from "@/lib-front/getImage";
 import Image from "next/image";
 import Link from "next/link";
-import { AuthorProp, SiteConfigProp } from "@model-view";
-import { getAuthors, getSiteConfig } from "@lib-front/services";
+import { AuthorProp, SiteConfigProp } from "@/model-view";
+import { getAuthors, getSiteConfig } from "@/lib-front/services";
 
 export default function About({ authors, siteconfig }: { authors: AuthorProp[], siteconfig: SiteConfigProp }) {
   return (

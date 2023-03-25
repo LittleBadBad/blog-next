@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Label from "@components/ui/label";
-import { CategoryProp } from "@model-view";
+import Label from "@/components/ui/label";
+import { CategoryProp } from "@/model-view";
 
 export default function CategoryLabel({ categories }: { categories: CategoryProp[] }) {
   return (

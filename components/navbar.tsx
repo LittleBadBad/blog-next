@@ -1,10 +1,10 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
-import Container from "@components/container";
+import Container from "@/components/container";
 import Link from "next/link";
 import Image from "next/image";
-import GetImage from "@lib-front/getImage";
-import { SiteConfigProp } from "@model-view";
+import GetImage from "@/lib-front/getImage";
+import { SiteConfigProp } from "@/model-view";
 
 export default function Navbar(props: SiteConfigProp) {
 

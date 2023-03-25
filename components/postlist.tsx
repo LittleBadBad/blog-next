@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cx } from "@lib-front/utils";
-import GetImage from "@lib-front/getImage";
+import { cx } from "@/lib-front/utils";
+import GetImage from "@/lib-front/getImage";
 import { parseISO, format } from "date-fns";
 import { PhotographIcon } from "@heroicons/react/outline";
-import CategoryLabel from "@components/blog/category";
-import { PostProp } from "@model-view";
-import { Aspect } from "@lib-back/propTypes";
+import CategoryLabel from "@/components/blog/category";
+import { PostProp } from "@/model-view";
+import { Aspect } from "@/lib-back/propTypes";
 
 export default function PostList({
                                    post,

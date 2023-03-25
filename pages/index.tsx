@@ -1,13 +1,13 @@
 import { NextSeo } from "next-seo";
-import Layout from "@components/layout";
-import Container from "@components/container";
+import Layout from "@/components/layout";
+import Container from "@/components/container";
 import { useRouter } from "next/router";
 import defaultOG from "../public/img/opengraph.jpg";
-import GetImage from "@lib-front/getImage";
-import PostList from "@components/postlist";
-import { GetStaticProps } from "@node_modules/next";
-import { getPosts, getSiteConfig } from "@lib-front/services";
-import { PostProp, SiteConfigProp } from "@model-view";
+import GetImage from "@/lib-front/getImage";
+import PostList from "@/components/postlist";
+import { GetStaticProps } from "next";
+import { getPosts, getSiteConfig } from "@/lib-front/services";
+import { PostProp, SiteConfigProp } from "@/model-view";
 
 type IndexProps = { posts: PostProp[], siteConfig: SiteConfigProp, preview: boolean }
 
@@ -72,7 +72,6 @@ export default function Post(props: IndexProps) {
   );
 }
 
-// todo
 export const getStaticProps: GetStaticProps<IndexProps> = async ({ params, preview = false }) => {
   const posts = await getPosts();
   const siteConfig = await getSiteConfig();

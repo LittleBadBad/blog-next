@@ -1,13 +1,13 @@
-import ReactMarkdown from "@node_modules/react-markdown";
-import rehypeStringify from "@node_modules/rehype-stringify";
-import rehypeKatex from "@node_modules/rehype-katex";
-import rehypeHighlight from "@node_modules/rehype-highlight";
-import rehypeFormat from "@node_modules/rehype-format";
-import rehypeRaw from "@node_modules/rehype-raw";
-import remarkMath from "@node_modules/remark-math";
-import remarkToc from "@node_modules/remark-toc";
-import remarkDirective from "@node_modules/remark-directive";
-import remarkGfm from "@node_modules/remark-gfm";
+import ReactMarkdown from "react-markdown";
+import rehypeStringify from "rehype-stringify";
+import rehypeKatex from "rehype-katex";
+import rehypeHighlight from "rehype-highlight";
+import rehypeFormat from "rehype-format";
+import rehypeRaw from "rehype-raw";
+import remarkMath from "remark-math";
+import remarkToc from "remark-toc";
+import remarkDirective from "remark-directive";
+import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
 
 const Markdown = ({ value }: { value: string }) => (

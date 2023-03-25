@@ -1,38 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "@components/layout";
-import Container from "@components/container";
+import Layout from "@/components/layout";
+import Container from "@/components/container";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import GetImage from "@lib-front/getImage";
+import GetImage from "@/lib-front/getImage";
 import { parseISO, format } from "date-fns";
 import { NextSeo } from "next-seo";
-import defaultOG from "@public/img/opengraph.jpg";
-import CategoryLabel from "@components/blog/category";
-import AuthorCard from "@components/blog/authorCard";
-import { PostProp, SiteConfigProp } from "@model-view";
-import { getPosts, httpService } from "@lib-front/services";
-import Markdown from "@components/blog/markdown";
+import defaultOG from "../../public/img/opengraph.jpg";
+import CategoryLabel from "@/components/blog/category";
+import AuthorCard from "@/components/blog/authorCard";
+import { PostProp, SiteConfigProp } from "@/model-view";
+import { getPosts, httpService } from "@/lib-front/services";
+import Markdown from "@/components/blog/markdown";
 
 export default function Post(props: { post: PostProp, siteConfig: SiteConfigProp, preview: boolean }) {
   const { post, siteConfig, preview } = props;
-
   const router = useRouter();
-  const { slug } = router.query;
-
-  // todo
-  // const { data: post } = { data: {} };
-  //   usePreviewSubscription(singlequery, {
-  //   params: { slug: slug },
-  //   initialData: postdata,
-  //   enabled: preview || router.query.preview !== undefined
-  // });
-
-  // const { data: siteConfig } = { data: {} };
-  //   usePreviewSubscription(configQuery, {
-  //   initialData: siteconfig,
-  //   enabled: preview || router.query.preview !== undefined
-  // });
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
